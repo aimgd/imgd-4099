@@ -1,0 +1,5 @@
+## Assignment 2:
+
+This shader's intent was to look like it was distorting the video stream as if there was a layer of water over it. It does so by creating a 3d value noise function representation of the water, where the 3rd axis is time and scrolls through a volume of FBM value noise, each slice being a height map for a frame. The heightmap is then used to approximate "absorption" by lerping to a water color, and also to calculate surface normals which are used for Lambertian shading, as well as a Phong approximation. The Phong approximation has been convoluted from my likely incorrect remembering of the specular lighting equation they used, but it aesthetically fits the purpose so it's alright, and it's not as if the original was physically based anyway.
+
+The inputs to the shader allow you mess with parameters like color, light placement, and water properties, through a TweakPane panel. The light's placement can be moved by the mouse. I had originally experimented with an IOR slider and tried to approximate the water's refraction but the results didn't look great and would need a lot more effort to get an acceptable distortion result.
